@@ -1,54 +1,40 @@
-<h1 align="center">
-  <br>
-  <a href="https://webtorrent.io">
-    <img src="https://webtorrent.io/img/WebTorrent.png" alt="WebTorrent" width="200">
-  </a>
-  <br>
-  WebTorrent Desktop
-  <br>
-  <br>
-</h1>
+# WebTorrent Desktop - Privacy Edition
 
-<h4 align="center">The streaming torrent app. For Mac, Windows, and Linux.</h4>
+The streaming torrent app. For Mac, Windows, and Linux.
 
-<p align="center">
-  <a href="https://discord.gg/cnXkm4Z"><img src="https://img.shields.io/discord/612575111718895616" alt="discord"></a>
-  <a href="https://travis-ci.org/webtorrent/webtorrent-desktop"><img src="https://img.shields.io/travis/webtorrent/webtorrent-desktop/master.svg" alt="travis"></a>
-  <a href="https://github.com/webtorrent/webtorrent-desktop/releases"><img src="https://img.shields.io/github/release/webtorrent/webtorrent-desktop.svg" alt="github release version"></a>
-  <a href="https://github.com/webtorrent/webtorrent-desktop/releases"><img src="https://img.shields.io/github/downloads/webtorrent/webtorrent-desktop/total.svg" alt="github release downloads"></a>
-  <a href="https://standardjs.com"><img src="https://img.shields.io/badge/code_style-standard-brightgreen.svg" alt="Standard - JavaScript Style Guide"></a>
-</p>
+## About this fork
 
-## Install
+This is a privacy extended version of webtorrent, with the following
+changes:
 
-### Recommended Install
+- No autoupdate mechanism. The main reason is that I do it for my
+  personal purposes and I don't want to compile it for other platforms
 
-Download the latest version of WebTorrent Desktop from
-[the official website](https://webtorrent.io/desktop/):
+- Automatically stop seeding after download. Yes, I know, being a leech
+  is not nice. If you want to seed, you can click on the torrent again
+  to seed manually. Please be nice and seed, but if you are in a hotel
+  room or on a data connection, you want to stop seeding as soon as
+  possible.
 
-### [✨ Download WebTorrent Desktop ✨](https://webtorrent.io/desktop/)
+- Do not send anonymized telemetry to Webtorrent servers. I have nothing
+  against doing it by default, but it should be configurable. This
+  edition has it off by default
 
-### Advanced Install
+Please do not expect me to keep this version up to date, handle bugs nor
+compile a version for your platform.
 
-- Download specific installer files from the [GitHub releases](https://github.com/webtorrent/webtorrent-desktop/releases) page.
+If you need to compile it for your
+platform, follow the compile and packaging instructions.
 
-- Use [Homebrew-Cask](https://github.com/caskroom/homebrew-cask) to install from the command line:
+## Running and installing
 
-  ```
-  $ brew cask install webtorrent
-  ```
+Or you can just do this from the command line:
 
-- Try the (unstable) development version by cloning the Git repository. See the
-  ["How to Contribute"](#how-to-contribute) instructions.
+```bash
+npm install && npm start
+```
 
-## Screenshots
-
-<p align="center">
-  <img src="https://webtorrent.io/img/screenshot-player3.png" alt="screenshot" align="center">
-  <img src="https://webtorrent.io/img/screenshot-main.png" width="612" height="749" alt="screenshot" align="center">
-</p>
-
-## How to Contribute
+## How to compile and package
 
 ### Get the code
 
@@ -176,15 +162,10 @@ https://reactjs.org/docs/getting-started.html
 Material UI (React components that implement Google's Material Design.):
 https://material-ui.com/getting-started
 
-### Privacy
-
-WebTorrent Desktop collects some basic usage stats to help us make the app better.
-For example, we track how well the play button works. How often does it succeed?
-Time out? Show a missing codec error?
-
-The app never sends any personally identifying information, nor does it track which
-torrents you add.
-
 ## License
 
 MIT. Copyright (c) [WebTorrent, LLC](https://webtorrent.io).
+Privacy enhancements [Juraj Bednar](https://github.com/jooray/webtorrent-desktop).
+
+Please note that this is not an official Webtorrent client, but a
+privacy enhanced fork!
