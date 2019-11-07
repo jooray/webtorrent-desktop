@@ -70,12 +70,12 @@ module.exports = {
 
   DEFAULT_DOWNLOAD_PATH: getDefaultDownloadPath(),
 
-  GITHUB_URL: 'https://github.com/webtorrent/webtorrent-desktop',
-  GITHUB_URL_ISSUES: 'https://github.com/webtorrent/webtorrent-desktop/issues',
-  GITHUB_URL_RAW: 'https://raw.githubusercontent.com/webtorrent/webtorrent-desktop/master',
-  GITHUB_URL_RELEASES: 'https://github.com/webtorrent/webtorrent-desktop/releases',
+  GITHUB_URL: 'https://github.com/jooray/webtorrent-desktop',
+  GITHUB_URL_ISSUES: 'https://github.com/jooray/webtorrent-desktop/issues',
+  GITHUB_URL_RAW: 'https://raw.githubusercontent.com/jooray/webtorrent-desktop/master',
+  GITHUB_URL_RELEASES: 'https://github.com/jooray/webtorrent-desktop/releases',
 
-  HOME_PAGE_URL: 'https://webtorrent.io',
+  HOME_PAGE_URL: 'https://github.com/jooray/webtorrent-desktop',
   TWITTER_PAGE_URL: 'https://twitter.com/WebTorrentApp',
 
   IS_PORTABLE: IS_PORTABLE,
