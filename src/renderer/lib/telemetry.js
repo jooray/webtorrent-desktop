@@ -50,14 +50,15 @@ function send (state) {
     json: true
   }
 
-  get.post(opts, function (err, res) {
+  /* get.post(opts, function (err, res) {
     if (err) return console.error('Error sending telemetry', err)
     if (res.statusCode !== 200) {
       return console.error(`Error sending telemetry, status code: ${res.statusCode}`)
     }
     console.log('Sent telemetry')
     reset()
-  })
+  }) */
+  console.log('Not sending telemetry, disabled')
 }
 
 function reset () {
