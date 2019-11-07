@@ -3,8 +3,8 @@ const path = require('path')
 const electron = require('electron')
 const arch = require('arch')
 
-const APP_NAME = 'WebTorrent'
-const APP_TEAM = 'WebTorrent, LLC'
+const APP_NAME = 'WebTorrentPrivacy'
+const APP_TEAM = 'WebTorrent, Juraj Bednar'
 const APP_VERSION = require('../package.json').version
 
 const IS_TEST = isTest()
@@ -70,13 +70,13 @@ module.exports = {
 
   DEFAULT_DOWNLOAD_PATH: getDefaultDownloadPath(),
 
-  GITHUB_URL: 'https://github.com/jooray/webtorrent-desktop',
-  GITHUB_URL_ISSUES: 'https://github.com/jooray/webtorrent-desktop/issues',
-  GITHUB_URL_RAW: 'https://raw.githubusercontent.com/jooray/webtorrent-desktop/master',
-  GITHUB_URL_RELEASES: 'https://github.com/jooray/webtorrent-desktop/releases',
+  GITHUB_URL: 'https://github.com/jooray/webtorrent-desktop-privacy',
+  GITHUB_URL_ISSUES: 'https://github.com/jooray/webtorrent-desktop-privacy/issues',
+  GITHUB_URL_RAW: 'https://raw.githubusercontent.com/jooray/webtorrent-desktop-privacy/master',
+  GITHUB_URL_RELEASES: 'https://github.com/jooray/webtorrent-desktop-privacy/releases',
 
-  HOME_PAGE_URL: 'https://github.com/jooray/webtorrent-desktop',
-  TWITTER_PAGE_URL: 'https://twitter.com/WebTorrentApp',
+  HOME_PAGE_URL: 'https://github.com/jooray/webtorrent-desktop-privacy',
+  TWITTER_PAGE_URL: 'https://twitter.com/jurbed',
 
   IS_PORTABLE: IS_PORTABLE,
   IS_PRODUCTION: IS_PRODUCTION,

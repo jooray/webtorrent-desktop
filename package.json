@@ -1,14 +1,14 @@
 {
-  "name": "webtorrent-desktop",
+  "name": "webtorrent-desktop-privacy",
   "description": "WebTorrent, the streaming torrent client. For Mac, Windows, and Linux.",
-  "version": "0.21.1",
+  "version": "0.21.0",
   "author": {
-    "name": "WebTorrent, LLC",
-    "email": "feross@webtorrent.io",
-    "url": "https://webtorrent.io"
+    "name": "Juraj Bednar",
+    "email": "juraj@bednar.io",
+    "url": "https://github.com/jooray/webtorrent-desktop-privacy"
   },
   "bugs": {
-    "url": "https://github.com/webtorrent/webtorrent-desktop/issues"
+    "url": "https://github.com/jooray/webtorrent-desktop-privacy/issues"
   },
   "dependencies": {
     "airplayer": "github:webtorrent/airplayer#fix-security",
@@ -72,7 +72,7 @@
   "engines": {
     "node": ">=4.0.0"
   },
-  "homepage": "https://webtorrent.io",
+  "homepage": "https://github.com/jooray/webtorrent-desktop-privacy",
   "keywords": [
     "desktop",
     "electron",
@@ -91,10 +91,10 @@
     "electron-installer-redhat": "^2.0.0"
   },
   "private": true,
-  "productName": "WebTorrent",
+  "productName": "WebTorrentPrivacy",
   "repository": {
     "type": "git",
-    "url": "git://github.com/webtorrent/webtorrent-desktop.git"
+    "url": "git://github.com/webtorrent/webtorrent-desktop-privacy.git"
   },
   "scripts": {
     "build": "buble src --target chrome:71 --output build",

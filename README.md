@@ -4,7 +4,8 @@ The streaming torrent app. For Mac, Windows, and Linux.
 
 ## About this fork
 
-This is a privacy extended version of webtorrent, with the following
+This is a privacy extended version of
+[webtorrent](https://webtorrent.io/), with the following
 changes:
 
 - No autoupdate mechanism. The main reason is that I do it for my
@@ -25,6 +26,14 @@ compile a version for your platform.
 
 If you need to compile it for your
 platform, follow the compile and packaging instructions.
+
+## Acknowledgements to upstream WebTorrent
+
+I would like to thank the WebTorrent team for making an amazing piece of
+software, this is just a flavor that I like more. And thanks to the
+open-source edition. All credit goes to the WebTorrent team for making
+this possible, head over to [their website](https://webtorrent.io/) for
+new version, cool new stuff and services.
 
 ## Running and installing
 
