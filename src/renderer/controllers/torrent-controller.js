@@ -96,6 +96,7 @@ module.exports = class TorrentController {
       ipcRenderer.send('downloadFinished', getTorrentPath(torrentSummary))
 
       // Auto stop seeding after download. You can manually reenable seeding
+      torrentSummary.status = 'paused'
       ipcRenderer.send('wt-stop-torrenting', torrentSummary.infoHash)
 
     }
