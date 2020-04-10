@@ -3,7 +3,7 @@
 console.time('init')
 
 const crypto = require('crypto')
-const deepEqual = require('deep-equal')
+const util = require('util')
 const defaultAnnounceList = require('create-torrent').announceList
 const electron = require('electron')
 const fs = require('fs')
@@ -249,7 +249,7 @@ function generateTorrentPoster (torrentKey) {
 function updateTorrentProgress () {
   const progress = getTorrentProgress()
   // TODO: diff torrent-by-torrent, not once for the whole update
-  if (prevProgress && deepEqual(progress, prevProgress, { strict: true })) {
+  if (prevProgress && util.isDeepStrictEqual(progress, prevProgress)) {
     return /* don't send heavy object if it hasn't changed */
   }
   ipc.send('wt-progress', progress)
@@ -351,15 +351,18 @@ function getAudioMetadata (infoHash, index) {
       ipc.send('wt-audio-metadata', infoHash, index, event.metadata)
     }
   }
-  const onMetaData = file.done
+  const onMetadata = file.done
     // If completed; use direct file access
     ? mm.parseFile(path.join(torrent.path, file.path), options)
     // otherwise stream
     : mm.parseStream(file.createReadStream(), file.name, options)
 
-  onMetaData
+  onMetadata
     .then(
-      () => console.log(`metadata for file='${file.name}' completed.`),
+      metadata => {
+        ipc.send('wt-audio-metadata', infoHash, index, metadata)
+        console.log(`metadata for file='${file.name}' completed.`)
+      },
       err => {
         console.log(
           `error getting audio metadata for ${infoHash}:${index}`,
