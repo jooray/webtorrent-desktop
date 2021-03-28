@@ -1,6 +1,6 @@
 const appConfig = require('application-config')('WebTorrent')
 const path = require('path')
-const electron = require('electron')
+const { app, remote } = require('electron')
 const arch = require('arch')
 
 const APP_NAME = 'WebTorrentPrivacy'
@@ -26,9 +26,9 @@ module.exports = {
   APP_COPYRIGHT: `Copyright © 2014-${new Date().getFullYear()} ${APP_TEAM}`,
   APP_FILE_ICON: path.join(__dirname, '..', 'static', 'WebTorrentFile'),
   APP_ICON: path.join(__dirname, '..', 'static', 'WebTorrent'),
-  APP_NAME: APP_NAME,
-  APP_TEAM: APP_TEAM,
-  APP_VERSION: APP_VERSION,
+  APP_NAME,
+  APP_TEAM,
+  APP_VERSION,
   APP_WINDOW_TITLE: APP_NAME,
 
   CONFIG_PATH: getConfigPath(),
@@ -78,9 +78,9 @@ module.exports = {
   HOME_PAGE_URL: 'https://github.com/jooray/webtorrent-desktop-privacy',
   TWITTER_PAGE_URL: 'https://twitter.com/jurbed',
 
-  IS_PORTABLE: IS_PORTABLE,
-  IS_PRODUCTION: IS_PRODUCTION,
-  IS_TEST: IS_TEST,
+  IS_PORTABLE,
+  IS_PRODUCTION,
+  IS_TEST,
 
   OS_SYSARCH: arch() === 'x64' ? 'x64' : 'ia32',
 
@@ -100,8 +100,8 @@ module.exports = {
   WINDOW_MIN_HEIGHT: UI_HEADER_HEIGHT + (UI_TORRENT_HEIGHT * 2), // header + 2 torrents
   WINDOW_MIN_WIDTH: 425,
 
-  UI_HEADER_HEIGHT: UI_HEADER_HEIGHT,
-  UI_TORRENT_HEIGHT: UI_TORRENT_HEIGHT
+  UI_HEADER_HEIGHT,
+  UI_TORRENT_HEIGHT
 }
 
 function getConfigPath () {
@@ -126,10 +126,10 @@ function getPath (key) {
     return ''
   } else if (process.type === 'renderer') {
     // Electron renderer process
-    return electron.remote.app.getPath(key)
+    return remote.app.getPath(key)
   } else {
     // Electron main process
-    return electron.app.getPath(key)
+    return app.getPath(key)
   }
 }
 

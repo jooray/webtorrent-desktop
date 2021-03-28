@@ -1,12 +1,14 @@
 console.time('init')
 
-const electron = require('electron')
-const app = electron.app
+const { app, ipcMain } = require('electron')
+
+// Start crash reporter early, so it takes effect for child processes
+const crashReporter = require('../crash-reporter')
+crashReporter.init()
 
 const parallel = require('run-parallel')
 
 const config = require('../config')
-const crashReporter = require('../crash-reporter')
 const ipc = require('./ipc')
 const log = require('./log')
 const menu = require('./menu')
@@ -64,8 +66,6 @@ function init () {
     app.setPath('temp', path.join(config.CONFIG_PATH, 'Temp'))
   }
 
-  const ipcMain = electron.ipcMain
-
   let isReady = false // app ready, windows can be created
   app.ipcReady = false // main window has finished loading and IPC is ready
   app.isQuitting = false
@@ -81,7 +81,7 @@ function init () {
     isReady = true
     const state = results.state
 
-    windows.main.init(state, { hidden: hidden })
+    windows.main.init(state, { hidden })
     windows.webtorrent.init()
     menu.init()
 
@@ -108,10 +108,6 @@ function init () {
   app.on('open-url', onOpen)
 
   ipc.init()
-
-  app.once('will-finish-launching', function () {
-    crashReporter.init()
-  })
 
   app.once('ipcReady', function () {
     log('Command line args:', argv)
@@ -199,9 +195,13 @@ function onAppOpen (newArgv) {
 // Development: 2 args, eg: electron .
 // Test: 4 args, eg: electron -r .../mocks.js .
 function sliceArgv (argv) {
-  return argv.slice(config.IS_PRODUCTION ? 1
-    : config.IS_TEST ? 4
-      : 2)
+  return argv.slice(
+    config.IS_PRODUCTION
+      ? 1
+      : config.IS_TEST
+        ? 4
+        : 2
+  )
 }
 
 function processArgv (argv) {

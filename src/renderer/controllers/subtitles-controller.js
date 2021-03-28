@@ -1,9 +1,7 @@
-const electron = require('electron')
+const { remote } = require('electron')
 const fs = require('fs')
 const path = require('path')
 const parallel = require('run-parallel')
-
-const remote = electron.remote
 
 const { dispatch } = require('../lib/dispatcher')
 
@@ -109,7 +107,7 @@ function loadSubtitle (file, cb) {
       buffer: 'data:text/vtt;base64,' + buf.toString('base64'),
       language: langDetected,
       label: langDetected,
-      filePath: filePath
+      filePath
     }
 
     cb(null, track)

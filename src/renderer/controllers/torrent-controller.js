@@ -1,5 +1,5 @@
 const path = require('path')
-const ipcRenderer = require('electron').ipcRenderer
+const { ipcRenderer } = require('electron')
 
 const TorrentSummary = require('../lib/torrent-summary')
 const sound = require('../lib/sound')
@@ -25,7 +25,7 @@ module.exports = class TorrentController {
       }
 
       torrentSummary = {
-        torrentKey: torrentKey,
+        torrentKey,
         status: 'new'
       }
       torrents.unshift(torrentSummary)

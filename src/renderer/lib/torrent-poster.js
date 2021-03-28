@@ -117,7 +117,7 @@ function torrentPosterFromAudio (torrent, cb) {
 
   const bestCover = imageFiles.map(file => {
     return {
-      file: file,
+      file,
       score: scoreAudioCoverFile(file)
     }
   }).reduce((a, b) => {
@@ -166,7 +166,8 @@ function torrentPosterFromVideo (torrent, cb) {
     function onSeeked () {
       video.removeEventListener('seeked', onSeeked)
 
-      const buf = captureFrame(video)
+      const frame = captureFrame(video)
+      const buf = frame && frame.image
 
       // unload video element
       video.pause()
