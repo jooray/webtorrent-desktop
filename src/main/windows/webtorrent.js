@@ -26,17 +26,19 @@ function init () {
     useContentSize: true,
     webPreferences: {
       nodeIntegration: true,
+      contextIsolation: false,
       enableBlinkFeatures: 'AudioVideoTracks',
       enableRemoteModule: true,
       backgroundThrottling: false
     },
     width: 150
   })
+  require('@electron/remote/main').enable(win.webContents)
 
   win.loadURL(config.WINDOW_WEBTORRENT)
 
   // Prevent killing the WebTorrent process
-  win.on('close', function (e) {
+  win.on('close', e => {
     if (app.isQuitting) {
       return
     }

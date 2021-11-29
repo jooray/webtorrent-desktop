@@ -42,6 +42,7 @@ function init (state, options) {
     width: initialBounds.width,
     webPreferences: {
       nodeIntegration: true,
+      contextIsolation: false,
       enableBlinkFeatures: 'AudioVideoTracks',
       enableRemoteModule: true,
       backgroundThrottling: false
@@ -49,6 +50,7 @@ function init (state, options) {
     x: initialBounds.x,
     y: initialBounds.y
   })
+  require('@electron/remote/main').enable(win.webContents)
 
   win.loadURL(config.WINDOW_MAIN)
 
@@ -64,7 +66,7 @@ function init (state, options) {
     menu.onToggleFullScreen(main.win.isFullScreen())
   })
 
-  win.webContents.on('will-navigate', (e, url) => {
+  win.webContents.on('will-navigate', (e) => {
     // Prevent drag-and-drop from navigating the Electron window, which can happen
     // before our drag-and-drop handlers have been initialized.
     e.preventDefault()
@@ -150,7 +152,7 @@ function setBounds (bounds, maximize) {
     log('setBounds: maximizing')
     main.win.maximize()
   } else if (maximize === false && main.win.isMaximized()) {
-    log('setBounds: unmaximizing')
+    log('setBounds: minimizing')
     main.win.unmaximize()
   }
 
